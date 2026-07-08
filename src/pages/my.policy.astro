@@ -1,0 +1,91 @@
+---
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+		<title>sso.fun-ac.jp</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 8px;
+        margin-left: 12px;
+        --m: 70px;
+        font-size: 16px;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--m);
+        background-color: black;
+      }
+      #m {
+        height: var(--m);
+      }
+      .field {
+        margin-bottom: 10px;
+      }
+      .field label {
+        display: block;
+      }
+
+			footer {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				border-top: 1px solid;
+			}
+
+			footer .p {
+				margin-left: 20px;
+				font-size: 10px;
+			}
+
+			.rev {
+				text-align: right;
+			}
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- none -->
+    </header>
+    <div id="m"></div>
+    <p>ユーザ名とパスワードを入力<br />してください</p>
+    <form id="login-form">
+      <div class="field">
+        <label for="username">ユーザ名</label>
+        <input type="text" id="username" name="username" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label for="password">パスワード</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          autocomplete="off"
+        />
+      </div>
+      <button type="submit">ログイン</button>
+    </form>
+
+		<footer>
+			<p class="p">This product is not official. &copy; 2026 not-mirai. All rights reserved.</p>
+			<p class="rev"><a href="https://www.fun-ac.jp">システム利用マニュアル</a></p>
+		</footer>
+    <script>
+      document.getElementById("login-form")?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        window.location.replace("https://www.fun-ac.jp");
+      });
+    </script>
+  </body>
+</html>
