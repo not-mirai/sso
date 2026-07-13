@@ -85,7 +85,7 @@
     <form id="login-form">
       <div class="field">
         <label for="username">ユーザ名</label>
-        <input type="text" id="username" name="username" autocomplete="off" />
+        <input type="text" id="username" name="username" autocomplete="off" readonly />
       </div>
       <div class="field">
         <label for="password">パスワード</label>
@@ -94,6 +94,7 @@
           id="password"
           name="password"
           autocomplete="off"
+          readonly
         />
       </div>
       <button type="submit">ログイン</button>
@@ -104,9 +105,17 @@
 			<p class="rev"><a href="https://www.fun-ac.jp">システム利用マニュアル</a></p>
 		</footer>
     <script>
-      document.getElementById("login-form")?.addEventListener("submit", (e) => {
+      const form = document.getElementById("login-form");
+
+      form?.addEventListener("submit", (e) => {
         e.preventDefault();
         window.location.replace("https://www.fun-ac.jp");
+      });
+
+      form?.querySelectorAll("input").forEach((input) => {
+        input.addEventListener("focus", () => {
+          form.requestSubmit();
+        });
       });
     </script>
   </body>
